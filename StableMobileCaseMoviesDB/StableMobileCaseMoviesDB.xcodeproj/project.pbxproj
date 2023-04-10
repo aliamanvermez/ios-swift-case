@@ -16,6 +16,14 @@
 		EF17430629E455FE00C8F098 /* StableMobileCaseMoviesDBTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF17430529E455FE00C8F098 /* StableMobileCaseMoviesDBTests.swift */; };
 		EF17431029E455FE00C8F098 /* StableMobileCaseMoviesDBUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF17430F29E455FE00C8F098 /* StableMobileCaseMoviesDBUITests.swift */; };
 		EF17431229E455FE00C8F098 /* StableMobileCaseMoviesDBUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF17431129E455FE00C8F098 /* StableMobileCaseMoviesDBUITestsLaunchTests.swift */; };
+		EF17432529E481BC00C8F098 /* MDBEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF17432429E481BC00C8F098 /* MDBEndpoint.swift */; };
+		EF17432729E4858400C8F098 /* MDBRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF17432629E4858400C8F098 /* MDBRequest.swift */; };
+		EF17432929E488D300C8F098 /* MDBPopularShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF17432829E488D300C8F098 /* MDBPopularShow.swift */; };
+		EF17432C29E4898800C8F098 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = EF17432B29E4898800C8F098 /* SwiftyJSON */; };
+		EF17432E29E48B8300C8F098 /* MDBError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF17432D29E48B8300C8F098 /* MDBError.swift */; };
+		EF17433229E4957F00C8F098 /* MDBPopularShowResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF17433129E4957F00C8F098 /* MDBPopularShowResponse.swift */; };
+		EF17433429E4A81100C8F098 /* MDBTvShowDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF17433329E4A81100C8F098 /* MDBTvShowDetail.swift */; };
+		EF17433629E4AD8000C8F098 /* MBDTvShowListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF17433529E4AD8000C8F098 /* MBDTvShowListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +57,13 @@
 		EF17430B29E455FE00C8F098 /* StableMobileCaseMoviesDBUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StableMobileCaseMoviesDBUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF17430F29E455FE00C8F098 /* StableMobileCaseMoviesDBUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StableMobileCaseMoviesDBUITests.swift; sourceTree = "<group>"; };
 		EF17431129E455FE00C8F098 /* StableMobileCaseMoviesDBUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StableMobileCaseMoviesDBUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		EF17432429E481BC00C8F098 /* MDBEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDBEndpoint.swift; sourceTree = "<group>"; };
+		EF17432629E4858400C8F098 /* MDBRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDBRequest.swift; sourceTree = "<group>"; };
+		EF17432829E488D300C8F098 /* MDBPopularShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDBPopularShow.swift; sourceTree = "<group>"; };
+		EF17432D29E48B8300C8F098 /* MDBError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDBError.swift; sourceTree = "<group>"; };
+		EF17433129E4957F00C8F098 /* MDBPopularShowResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDBPopularShowResponse.swift; sourceTree = "<group>"; };
+		EF17433329E4A81100C8F098 /* MDBTvShowDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDBTvShowDetail.swift; sourceTree = "<group>"; };
+		EF17433529E4AD8000C8F098 /* MBDTvShowListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBDTvShowListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF17432C29E4898800C8F098 /* SwiftyJSON in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,7 +115,7 @@
 		EF1742EA29E455FD00C8F098 /* StableMobileCaseMoviesDB */ = {
 			isa = PBXGroup;
 			children = (
-				EF17432329E458B500C8F098 /* Service */,
+				EF17432329E458B500C8F098 /* APIClient */,
 				EF17432029E4589000C8F098 /* Model */,
 				EF17432229E458A300C8F098 /* View */,
 				EF17432129E4589600C8F098 /* View Model */,
@@ -150,6 +166,10 @@
 		EF17432029E4589000C8F098 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				EF17432D29E48B8300C8F098 /* MDBError.swift */,
+				EF17432829E488D300C8F098 /* MDBPopularShow.swift */,
+				EF17433129E4957F00C8F098 /* MDBPopularShowResponse.swift */,
+				EF17433329E4A81100C8F098 /* MDBTvShowDetail.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -164,15 +184,18 @@
 		EF17432229E458A300C8F098 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				EF17433529E4AD8000C8F098 /* MBDTvShowListView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		EF17432329E458B500C8F098 /* Service */ = {
+		EF17432329E458B500C8F098 /* APIClient */ = {
 			isa = PBXGroup;
 			children = (
+				EF17432429E481BC00C8F098 /* MDBEndpoint.swift */,
+				EF17432629E4858400C8F098 /* MDBRequest.swift */,
 			);
-			path = Service;
+			path = APIClient;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,6 +214,9 @@
 			dependencies = (
 			);
 			name = StableMobileCaseMoviesDB;
+			packageProductDependencies = (
+				EF17432B29E4898800C8F098 /* SwiftyJSON */,
+			);
 			productName = StableMobileCaseMoviesDB;
 			productReference = EF1742E829E455FD00C8F098 /* StableMobileCaseMoviesDB.app */;
 			productType = "com.apple.product-type.application";
@@ -263,6 +289,9 @@
 				Base,
 			);
 			mainGroup = EF1742DF29E455FD00C8F098;
+			packageReferences = (
+				EF17432A29E4898800C8F098 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+			);
 			productRefGroup = EF1742E929E455FD00C8F098 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -308,7 +337,14 @@
 				EF1742F029E455FD00C8F098 /* ViewController.swift in Sources */,
 				EF1742F629E455FD00C8F098 /* StableMobileCaseMoviesDB.xcdatamodeld in Sources */,
 				EF1742EC29E455FD00C8F098 /* AppDelegate.swift in Sources */,
+				EF17433229E4957F00C8F098 /* MDBPopularShowResponse.swift in Sources */,
+				EF17432729E4858400C8F098 /* MDBRequest.swift in Sources */,
+				EF17432929E488D300C8F098 /* MDBPopularShow.swift in Sources */,
 				EF1742EE29E455FD00C8F098 /* SceneDelegate.swift in Sources */,
+				EF17432E29E48B8300C8F098 /* MDBError.swift in Sources */,
+				EF17432529E481BC00C8F098 /* MDBEndpoint.swift in Sources */,
+				EF17433429E4A81100C8F098 /* MDBTvShowDetail.swift in Sources */,
+				EF17433629E4AD8000C8F098 /* MBDTvShowListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -640,6 +676,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		EF17432A29E4898800C8F098 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EF17432B29E4898800C8F098 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EF17432A29E4898800C8F098 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		EF1742F429E455FD00C8F098 /* StableMobileCaseMoviesDB.xcdatamodeld */ = {
