@@ -8,39 +8,20 @@
 import Foundation
 
 struct MDBPopularShow: Codable {
-    let backdropPath, firstAirDate: String?
-    let genreIDS: [Int]?
-    let id: Int?
-    let name: String?
-    let originCountry: [String]?
-    var originalLanguage: OriginalLanguage?
-    let originalName, overview: String?
-    let popularity: Double?
+    
+    let genreIDS: [Int]?//genreid
+    let id: Int? //id
+    let name: String? //name
     let posterPath: String?
-    let voteAverage: Double?
-    let voteCount: Int?
-
+    let voteAverage: Double? //average rating
+    
     enum CodingKeys: String, CodingKey {
-        case backdropPath = "backdrop_path"
-        case firstAirDate = "first_air_date"
         case genreIDS = "genre_ids"
         case id, name
-        case originCountry = "origin_country"
-        case originalLanguage = "original_language"
-        case originalName = "original_name"
-        case overview, popularity
         case posterPath = "poster_path"
         case voteAverage = "vote_average"
-        case voteCount = "vote_count"
     }
 }
-
-enum OriginalLanguage: String, Codable {
-    case ar = "ar"
-    case hi = "hi"
-    case ms = "ms"
-}
-
 
 extension MDBPopularShow {
     var posterURL: URL? {

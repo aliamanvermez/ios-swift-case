@@ -11,8 +11,8 @@ struct MDBTvShowDetail: Codable {
    
     let genres: [Genre]?
     let name: String?
-    let numberOfEpisodes, numberOfSeasons: Int?
-    let popularity: Double?
+    let numberOfEpisodes : Int?
+    let numberOfSeasons: Int?
     let posterPath: String? 
 
 

@@ -27,7 +27,7 @@ class MDBRequest {
                     do {
                         let models  = try decoder.decode(MDBPopularShowResponse.self, from: data)
                         completion(models,nil)
-                        print(models.results![0].originalName)
+                        print(models.results)
                         
                     }catch{
                         print(error.localizedDescription)
