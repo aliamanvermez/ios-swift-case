@@ -9,7 +9,6 @@ import UIKit
 import SnapKit
 final class MDBTvShowCollectionViewCell: UICollectionViewCell {
     static let identifier = "MBDTvShowCollectionViewCell"
-    
     public let showImageView : UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
@@ -19,7 +18,7 @@ final class MDBTvShowCollectionViewCell: UICollectionViewCell {
     
     private let showNameLabel : UILabel = {
         let label = UILabel()
-        label.textColor = .white
+        label.textColor = .black
         label.textAlignment = .center
         label.numberOfLines = 3
         label.font = .systemFont(ofSize: 18, weight: .bold)
@@ -28,7 +27,7 @@ final class MDBTvShowCollectionViewCell: UICollectionViewCell {
     
     private let showVoteAverageLabel : UILabel = {
         let label = UILabel()
-        label.textColor = .white
+        label.textColor = .black
         label.textAlignment = .center
         label.numberOfLines = 3
         label.font = .systemFont(ofSize: 18, weight: .bold)
@@ -38,11 +37,43 @@ final class MDBTvShowCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentView.addSubviews(showImageView,showNameLabel,showVoteAverageLabel)
+        addViewConstraints()
         
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    public func configureCell(with viewModel : MDBTvShowCollectionViewCellViewModel) {
+        
+        if let showName = viewModel.showName {
+            showNameLabel.text = showName
+        } else {
+            showNameLabel.text = "Empty Name"
+        }
+        
+        if let showVoteAverage = viewModel.showVoteAverage {
+            showVoteAverageLabel.text = String(describing: showVoteAverage)
+        } else {
+            showVoteAverageLabel.text = "Average not found"
+        }
+        
+        viewModel.fetchImage { [weak self] result in
+            switch result {
+            case .success(let data):
+                DispatchQueue.main.async {
+                    let image = UIImage(data: data)
+                    self?.showImageView.image = image
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+                break
+            }
+        }
+        
+        let showID = viewModel.showID
+        
     }
     
     func addViewConstraints(){
@@ -52,7 +83,7 @@ final class MDBTvShowCollectionViewCell: UICollectionViewCell {
             make.top.equalToSuperview()
         }
         showNameLabel.snp.makeConstraints { make in
-            make.width.equalToSuperview().multipliedBy(0.2)
+            make.width.equalToSuperview().multipliedBy(0.4)
             make.height.equalToSuperview().multipliedBy(0.2)
             make.top.equalToSuperview()
             make.left.equalTo(showImageView.snp.right)
