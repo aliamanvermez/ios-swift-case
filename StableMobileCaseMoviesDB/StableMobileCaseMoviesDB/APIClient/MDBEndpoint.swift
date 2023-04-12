@@ -2,7 +2,7 @@
 //  MDBEndpoint.swift
 //  StableMobileCaseMoviesDB
 //
-//  Created by Ali Amanvermez on 10.04.2023.
+//  Created by Ali Amanvermez on 12.04.2023.
 //
 
 import Foundation

@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         // 3.
         
-        let mainController = ViewController()
+        let mainController = MDBShowListViewController()
 
         let navigationController = UINavigationController(rootViewController: mainController)
 

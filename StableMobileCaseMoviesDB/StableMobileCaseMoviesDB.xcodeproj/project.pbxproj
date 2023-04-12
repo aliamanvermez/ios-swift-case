@@ -9,15 +9,14 @@
 /* Begin PBXBuildFile section */
 		EF1742EC29E455FD00C8F098 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1742EB29E455FD00C8F098 /* AppDelegate.swift */; };
 		EF1742EE29E455FD00C8F098 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1742ED29E455FD00C8F098 /* SceneDelegate.swift */; };
-		EF1742F029E455FD00C8F098 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1742EF29E455FD00C8F098 /* ViewController.swift */; };
+		EF1742F029E455FD00C8F098 /* MDBShowListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1742EF29E455FD00C8F098 /* MDBShowListViewController.swift */; };
 		EF1742F629E455FD00C8F098 /* StableMobileCaseMoviesDB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EF1742F429E455FD00C8F098 /* StableMobileCaseMoviesDB.xcdatamodeld */; };
 		EF1742F829E455FE00C8F098 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF1742F729E455FE00C8F098 /* Assets.xcassets */; };
 		EF1742FB29E455FE00C8F098 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF1742F929E455FE00C8F098 /* LaunchScreen.storyboard */; };
 		EF17430629E455FE00C8F098 /* StableMobileCaseMoviesDBTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF17430529E455FE00C8F098 /* StableMobileCaseMoviesDBTests.swift */; };
 		EF17431029E455FE00C8F098 /* StableMobileCaseMoviesDBUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF17430F29E455FE00C8F098 /* StableMobileCaseMoviesDBUITests.swift */; };
 		EF17431229E455FE00C8F098 /* StableMobileCaseMoviesDBUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF17431129E455FE00C8F098 /* StableMobileCaseMoviesDBUITestsLaunchTests.swift */; };
-		EF17432529E481BC00C8F098 /* MDBEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF17432429E481BC00C8F098 /* MDBEndpoint.swift */; };
-		EF17432729E4858400C8F098 /* MDBRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF17432629E4858400C8F098 /* MDBRequest.swift */; };
+		EF17432529E481BC00C8F098 /* MDBRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF17432429E481BC00C8F098 /* MDBRequest.swift */; };
 		EF17432929E488D300C8F098 /* MDBPopularShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF17432829E488D300C8F098 /* MDBPopularShow.swift */; };
 		EF17432C29E4898800C8F098 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = EF17432B29E4898800C8F098 /* SwiftyJSON */; };
 		EF17432E29E48B8300C8F098 /* MDBError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF17432D29E48B8300C8F098 /* MDBError.swift */; };
@@ -29,6 +28,8 @@
 		EF17433E29E4AFF200C8F098 /* MDBTvShowCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF17433D29E4AFF200C8F098 /* MDBTvShowCollectionViewCell.swift */; };
 		EF17434029E4B51100C8F098 /* MDBTvShowCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF17433F29E4B51100C8F098 /* MDBTvShowCollectionViewCellViewModel.swift */; };
 		EF17434229E4B5DC00C8F098 /* MDBTvShowListViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF17434129E4B5DC00C8F098 /* MDBTvShowListViewViewModel.swift */; };
+		EF17434629E6F2F400C8F098 /* MDBEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF17434529E6F2F400C8F098 /* MDBEndpoint.swift */; };
+		EF17434829E7056900C8F098 /* MDBTvShowDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF17434729E7056900C8F098 /* MDBTvShowDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,7 +53,7 @@
 		EF1742E829E455FD00C8F098 /* StableMobileCaseMoviesDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StableMobileCaseMoviesDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF1742EB29E455FD00C8F098 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EF1742ED29E455FD00C8F098 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		EF1742EF29E455FD00C8F098 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EF1742EF29E455FD00C8F098 /* MDBShowListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDBShowListViewController.swift; sourceTree = "<group>"; };
 		EF1742F529E455FD00C8F098 /* StableMobileCaseMoviesDB.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StableMobileCaseMoviesDB.xcdatamodel; sourceTree = "<group>"; };
 		EF1742F729E455FE00C8F098 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EF1742FA29E455FE00C8F098 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -62,8 +63,7 @@
 		EF17430B29E455FE00C8F098 /* StableMobileCaseMoviesDBUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StableMobileCaseMoviesDBUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF17430F29E455FE00C8F098 /* StableMobileCaseMoviesDBUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StableMobileCaseMoviesDBUITests.swift; sourceTree = "<group>"; };
 		EF17431129E455FE00C8F098 /* StableMobileCaseMoviesDBUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StableMobileCaseMoviesDBUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		EF17432429E481BC00C8F098 /* MDBEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDBEndpoint.swift; sourceTree = "<group>"; };
-		EF17432629E4858400C8F098 /* MDBRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDBRequest.swift; sourceTree = "<group>"; };
+		EF17432429E481BC00C8F098 /* MDBRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDBRequest.swift; sourceTree = "<group>"; };
 		EF17432829E488D300C8F098 /* MDBPopularShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDBPopularShow.swift; sourceTree = "<group>"; };
 		EF17432D29E48B8300C8F098 /* MDBError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDBError.swift; sourceTree = "<group>"; };
 		EF17433129E4957F00C8F098 /* MDBPopularShowResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDBPopularShowResponse.swift; sourceTree = "<group>"; };
@@ -73,6 +73,8 @@
 		EF17433D29E4AFF200C8F098 /* MDBTvShowCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDBTvShowCollectionViewCell.swift; sourceTree = "<group>"; };
 		EF17433F29E4B51100C8F098 /* MDBTvShowCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDBTvShowCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
 		EF17434129E4B5DC00C8F098 /* MDBTvShowListViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDBTvShowListViewViewModel.swift; sourceTree = "<group>"; };
+		EF17434529E6F2F400C8F098 /* MDBEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDBEndpoint.swift; sourceTree = "<group>"; };
+		EF17434729E7056900C8F098 /* MDBTvShowDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDBTvShowDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,12 +127,12 @@
 		EF1742EA29E455FD00C8F098 /* StableMobileCaseMoviesDB */ = {
 			isa = PBXGroup;
 			children = (
-				EF17433A29E4AE1400C8F098 /* Extensions */,
 				EF17432329E458B500C8F098 /* APIClient */,
 				EF17432029E4589000C8F098 /* Model */,
 				EF17432229E458A300C8F098 /* View */,
 				EF17432129E4589600C8F098 /* View Model */,
 				EF17431F29E4584F00C8F098 /* Controller */,
+				EF17433A29E4AE1400C8F098 /* Extensions */,
 				EF17431E29E4583500C8F098 /* Support */,
 			);
 			path = StableMobileCaseMoviesDB;
@@ -169,7 +171,7 @@
 		EF17431F29E4584F00C8F098 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				EF1742EF29E455FD00C8F098 /* ViewController.swift */,
+				EF1742EF29E455FD00C8F098 /* MDBShowListViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -177,7 +179,6 @@
 		EF17432029E4589000C8F098 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				EF17432D29E48B8300C8F098 /* MDBError.swift */,
 				EF17432829E488D300C8F098 /* MDBPopularShow.swift */,
 				EF17433129E4957F00C8F098 /* MDBPopularShowResponse.swift */,
 				EF17433329E4A81100C8F098 /* MDBTvShowDetail.swift */,
@@ -199,6 +200,7 @@
 			children = (
 				EF17433529E4AD8000C8F098 /* MDBTvShowListView.swift */,
 				EF17433D29E4AFF200C8F098 /* MDBTvShowCollectionViewCell.swift */,
+				EF17434729E7056900C8F098 /* MDBTvShowDetailView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -206,8 +208,9 @@
 		EF17432329E458B500C8F098 /* APIClient */ = {
 			isa = PBXGroup;
 			children = (
-				EF17432429E481BC00C8F098 /* MDBEndpoint.swift */,
-				EF17432629E4858400C8F098 /* MDBRequest.swift */,
+				EF17432429E481BC00C8F098 /* MDBRequest.swift */,
+				EF17434529E6F2F400C8F098 /* MDBEndpoint.swift */,
+				EF17432D29E48B8300C8F098 /* MDBError.swift */,
 			);
 			path = APIClient;
 			sourceTree = "<group>";
@@ -358,19 +361,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF17434829E7056900C8F098 /* MDBTvShowDetailView.swift in Sources */,
+				EF17434629E6F2F400C8F098 /* MDBEndpoint.swift in Sources */,
 				EF17434229E4B5DC00C8F098 /* MDBTvShowListViewViewModel.swift in Sources */,
-				EF1742F029E455FD00C8F098 /* ViewController.swift in Sources */,
+				EF1742F029E455FD00C8F098 /* MDBShowListViewController.swift in Sources */,
 				EF17433E29E4AFF200C8F098 /* MDBTvShowCollectionViewCell.swift in Sources */,
 				EF1742F629E455FD00C8F098 /* StableMobileCaseMoviesDB.xcdatamodeld in Sources */,
 				EF1742EC29E455FD00C8F098 /* AppDelegate.swift in Sources */,
 				EF17433229E4957F00C8F098 /* MDBPopularShowResponse.swift in Sources */,
-				EF17432729E4858400C8F098 /* MDBRequest.swift in Sources */,
 				EF17432929E488D300C8F098 /* MDBPopularShow.swift in Sources */,
 				EF17433C29E4AE2400C8F098 /* UIView+Extensions.swift in Sources */,
 				EF17434029E4B51100C8F098 /* MDBTvShowCollectionViewCellViewModel.swift in Sources */,
 				EF1742EE29E455FD00C8F098 /* SceneDelegate.swift in Sources */,
 				EF17432E29E48B8300C8F098 /* MDBError.swift in Sources */,
-				EF17432529E481BC00C8F098 /* MDBEndpoint.swift in Sources */,
+				EF17432529E481BC00C8F098 /* MDBRequest.swift in Sources */,
 				EF17433429E4A81100C8F098 /* MDBTvShowDetail.swift in Sources */,
 				EF17433629E4AD8000C8F098 /* MDBTvShowListView.swift in Sources */,
 			);

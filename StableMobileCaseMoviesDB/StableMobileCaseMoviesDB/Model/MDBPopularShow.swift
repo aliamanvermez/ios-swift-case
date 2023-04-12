@@ -21,6 +21,13 @@ struct MDBPopularShow: Codable {
         case posterPath = "poster_path"
         case voteAverage = "vote_average"
     }
+    
+    var detailURL: URL? {
+        guard let id = id else {
+            return nil
+        }
+        return URL(string: "https://api.themoviedb.org/3/tv/\(id)?api_key=API_KEY")
+    }
 }
 
 extension MDBPopularShow {
@@ -30,6 +37,8 @@ extension MDBPopularShow {
         }
         return URL(string: "https://image.tmdb.org/t/p/w500\(posterPath)")
     }
+    
+    
 }
 
 
