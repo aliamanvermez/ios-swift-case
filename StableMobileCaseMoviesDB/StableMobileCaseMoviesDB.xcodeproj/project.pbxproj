@@ -30,6 +30,8 @@
 		EF17434229E4B5DC00C8F098 /* MDBTvShowListViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF17434129E4B5DC00C8F098 /* MDBTvShowListViewViewModel.swift */; };
 		EF17434629E6F2F400C8F098 /* MDBEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF17434529E6F2F400C8F098 /* MDBEndpoint.swift */; };
 		EF17434829E7056900C8F098 /* MDBTvShowDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF17434729E7056900C8F098 /* MDBTvShowDetailView.swift */; };
+		EF17434A29E738AA00C8F098 /* MDBShowDetailViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF17434929E738AA00C8F098 /* MDBShowDetailViewViewModel.swift */; };
+		EF17434C29E7392600C8F098 /* MDBShowDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF17434B29E7392600C8F098 /* MDBShowDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +77,8 @@
 		EF17434129E4B5DC00C8F098 /* MDBTvShowListViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDBTvShowListViewViewModel.swift; sourceTree = "<group>"; };
 		EF17434529E6F2F400C8F098 /* MDBEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDBEndpoint.swift; sourceTree = "<group>"; };
 		EF17434729E7056900C8F098 /* MDBTvShowDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDBTvShowDetailView.swift; sourceTree = "<group>"; };
+		EF17434929E738AA00C8F098 /* MDBShowDetailViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDBShowDetailViewViewModel.swift; sourceTree = "<group>"; };
+		EF17434B29E7392600C8F098 /* MDBShowDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDBShowDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				EF1742EF29E455FD00C8F098 /* MDBShowListViewController.swift */,
+				EF17434B29E7392600C8F098 /* MDBShowDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -191,6 +196,7 @@
 			children = (
 				EF17433F29E4B51100C8F098 /* MDBTvShowCollectionViewCellViewModel.swift */,
 				EF17434129E4B5DC00C8F098 /* MDBTvShowListViewViewModel.swift */,
+				EF17434929E738AA00C8F098 /* MDBShowDetailViewViewModel.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -361,6 +367,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF17434C29E7392600C8F098 /* MDBShowDetailViewController.swift in Sources */,
 				EF17434829E7056900C8F098 /* MDBTvShowDetailView.swift in Sources */,
 				EF17434629E6F2F400C8F098 /* MDBEndpoint.swift in Sources */,
 				EF17434229E4B5DC00C8F098 /* MDBTvShowListViewViewModel.swift in Sources */,
@@ -373,6 +380,7 @@
 				EF17433C29E4AE2400C8F098 /* UIView+Extensions.swift in Sources */,
 				EF17434029E4B51100C8F098 /* MDBTvShowCollectionViewCellViewModel.swift in Sources */,
 				EF1742EE29E455FD00C8F098 /* SceneDelegate.swift in Sources */,
+				EF17434A29E738AA00C8F098 /* MDBShowDetailViewViewModel.swift in Sources */,
 				EF17432E29E48B8300C8F098 /* MDBError.swift in Sources */,
 				EF17432529E481BC00C8F098 /* MDBRequest.swift in Sources */,
 				EF17433429E4A81100C8F098 /* MDBTvShowDetail.swift in Sources */,
