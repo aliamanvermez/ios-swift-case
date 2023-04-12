@@ -8,7 +8,15 @@
 import UIKit
 import SnapKit
 
-class MDBTvShowListView: UIView {
+protocol MDBShowListViewDelegate: AnyObject {
+    func mdbShowListView(_ filmListView: MDBTvShowListView, didSelectCharacter film: MDBPopularShow)
+}
+
+
+final class MDBTvShowListView: UIView {
+    
+    public weak var delegate : MDBShowListViewDelegate?
+    private let viewModel =  MDBTvShowListViewViewModel()
     
     private let spinner : UIActivityIndicatorView = {
         let spinner = UIActivityIndicatorView(style: .large)
@@ -20,7 +28,6 @@ class MDBTvShowListView: UIView {
     var collectionView : UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.isHidden = true
         layout.scrollDirection = .vertical
         return collectionView
     }()
@@ -33,9 +40,16 @@ class MDBTvShowListView: UIView {
         return label
     }()
     
+
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        addSubviews(spinner,collectionView,header)
+        viewModel.fetchShows()
+        viewModel.delegate = self
+        addSubviews(collectionView)
+        setUpCollectionView()
+        createSnapkitConstraints()
+        
     }
     
     required init?(coder: NSCoder) {
@@ -45,13 +59,27 @@ class MDBTvShowListView: UIView {
     private func createSnapkitConstraints() {
         collectionView.snp.makeConstraints { make in
             make.width.equalToSuperview()
-            make.height.equalToSuperview().multipliedBy(0.6)
+            make.height.equalToSuperview().multipliedBy(0.9)
             make.top.equalToSuperview()
         }
     }
     
     private func setUpCollectionView(){
-        
+        collectionView.dataSource = viewModel
+        collectionView.delegate = viewModel
+        collectionView.register(MDBTvShowCollectionViewCell.self, forCellWithReuseIdentifier: MDBTvShowCollectionViewCell.identifier)
     }
+    
+}
+
+extension MDBTvShowListView : MDBTvShowListViewViewModelDelegate {
+    func didFetchShows() {
+        self.collectionView.reloadData()
+    }
+    
+    func didSelectShow(_ character: MDBPopularShow) {
+        delegate?.mdbShowListView(self, didSelectCharacter: character)
+    }
+    
     
 }
