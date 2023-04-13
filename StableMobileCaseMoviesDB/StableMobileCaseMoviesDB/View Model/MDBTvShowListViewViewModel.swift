@@ -38,7 +38,6 @@ final class MDBTvShowListViewViewModel: NSObject{
             case .success(let responseModel):
                 let results = responseModel.results
                 self?.tvShows = results
-//                print(results)
                 DispatchQueue.main.async {
                     self?.delegate?.didLoadShows()
                 }
@@ -48,6 +47,7 @@ final class MDBTvShowListViewViewModel: NSObject{
         
         }
     }
+    
 
 }
 
@@ -65,6 +65,7 @@ extension MDBTvShowListViewViewModel : UICollectionViewDataSource, UICollectionV
         }
         let viewModel = cellViewModel[indexPath.row]
         cell.configureCell(with: viewModel)
+        cell.backgroundColor = .systemGray
         return cell
     }
     

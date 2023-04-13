@@ -20,7 +20,6 @@ class MDBService {
     public func execute<T : Codable>(_ request : MDBRequest, expecting type : T.Type, completion : @escaping (Result<T , Error>) -> Void) {
         guard let urlRequest = self.request(from: request) else {
             completion(.failure(MDBServiceError.failedToCreateRequest))
-            print("burası")
             return
         }
         
@@ -35,7 +34,6 @@ class MDBService {
             do {
                 let result = try JSONDecoder().decode(type.self, from: data)
                 completion(.success(result))
-                print(result)
             }catch{
                 completion(.failure(error))
                 

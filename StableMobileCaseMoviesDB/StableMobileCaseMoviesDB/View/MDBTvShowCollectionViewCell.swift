@@ -21,7 +21,17 @@ final class MDBTvShowCollectionViewCell: UICollectionViewCell {
         label.textColor = .black
         label.textAlignment = .center
         label.numberOfLines = 3
-        label.font = .systemFont(ofSize: 18, weight: .bold)
+        label.font = .systemFont(ofSize: 20, weight: .bold)
+        return label
+    }()
+    
+    private let showVoteAverageHeader : UILabel = {
+        let label = UILabel()
+        label.text = "Show's Average Vote"
+        label.textColor = .black
+        label.textAlignment = .center
+        label.numberOfLines = 3
+        label.font = .systemFont(ofSize: 18, weight: .light)
         return label
     }()
     
@@ -30,13 +40,13 @@ final class MDBTvShowCollectionViewCell: UICollectionViewCell {
         label.textColor = .black
         label.textAlignment = .center
         label.numberOfLines = 3
-        label.font = .systemFont(ofSize: 18, weight: .bold)
+        label.font = .systemFont(ofSize: 16, weight: .bold)
         return label
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        contentView.addSubviews(showImageView,showNameLabel,showVoteAverageLabel)
+        contentView.addSubviews(showImageView,showNameLabel,showVoteAverageHeader,showVoteAverageLabel)
         addViewConstraints()
         
     }
@@ -71,9 +81,7 @@ final class MDBTvShowCollectionViewCell: UICollectionViewCell {
                 break
             }
         }
-        
-        let showID = viewModel.showID
-        
+            
     }
     
     func addViewConstraints(){
@@ -82,17 +90,25 @@ final class MDBTvShowCollectionViewCell: UICollectionViewCell {
             make.height.equalToSuperview()
             make.top.equalToSuperview()
         }
+
         showNameLabel.snp.makeConstraints { make in
-            make.width.equalToSuperview().multipliedBy(0.4)
+            make.width.equalToSuperview().multipliedBy(0.7)
             make.height.equalToSuperview().multipliedBy(0.2)
-            make.top.equalToSuperview()
+            make.top.equalToSuperview().offset(30)
+            make.left.equalTo(showImageView.snp.right)
+        }
+        
+        showVoteAverageHeader.snp.makeConstraints { make in
+            make.width.equalToSuperview().multipliedBy(0.7)
+            make.height.equalToSuperview().multipliedBy(0.2)
+            make.top.equalTo(showNameLabel.snp.bottom)
             make.left.equalTo(showImageView.snp.right)
         }
         
         showVoteAverageLabel.snp.makeConstraints { make in
-            make.width.equalToSuperview().multipliedBy(0.2)
+            make.width.equalToSuperview().multipliedBy(0.7)
             make.height.equalToSuperview().multipliedBy(0.2)
-            make.top.equalTo(showNameLabel.snp.bottom)
+            make.top.equalTo(showVoteAverageHeader.snp.bottom)
             make.left.equalTo(showImageView.snp.right)
         }
     }

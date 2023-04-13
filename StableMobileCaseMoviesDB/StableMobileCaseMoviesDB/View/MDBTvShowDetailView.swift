@@ -39,7 +39,7 @@ class MDBTvShowDetailView: UIView {
         label.textColor = .white
         label.textAlignment = .center
         label.backgroundColor = .brown
-
+        
         label.numberOfLines = 4
         label.font = .systemFont(ofSize: 20, weight: .bold)
         return label
@@ -72,6 +72,8 @@ class MDBTvShowDetailView: UIView {
         return button
     }()
     
+    
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubviews(showImageView,showTitleLabel,showGenreLabel,showSeasonCountLabel,showTotalEpisodesLabel,showAddFavoriteButton)
@@ -84,11 +86,45 @@ class MDBTvShowDetailView: UIView {
     
     func configure(with viewModel : MDBTvShowListDetailViewViewModel ) {
         DispatchQueue.main.async {
-            self.showTitleLabel.text = viewModel.showDetail?.name
-            self.showSeasonCountLabel.text = String(describing: viewModel.showDetail?.numberOfSeasons)
-            self.showTotalEpisodesLabel.text = String(describing: viewModel.showDetail?.numberOfEpisodes)
+            
+            if let showTitle = viewModel.showDetail?.name {
+                self.showTitleLabel.text = showTitle
+            }else {
+                self.showTitleLabel.text = "Show not found"
+            }
+            
+            if let showGenre = viewModel.genres?.first?.name {
+                self.showGenreLabel.text = showGenre
+            }else{
+                self.showGenreLabel.text = "Genre not found"
+            }
+            
+            if let showSeasonCount = viewModel.showDetail?.numberOfSeasons {
+                self.showSeasonCountLabel.text = String(describing: showSeasonCount)
+            } else{
+                self.showSeasonCountLabel.text = "Season not found"
+            }
+            
+            if let showTotalEpisodes = viewModel.showDetail?.numberOfEpisodes {
+                self.showTotalEpisodesLabel.text = String(describing: showTotalEpisodes)
+            }else{
+                self.showTotalEpisodesLabel.text = "Episode not found"
+            }
+            
+            viewModel.fetchShowImage { [weak self] result in
+                switch result {
+                case .success(let data):
+                    DispatchQueue.main.async {
+                        let image = UIImage(data: data)
+                        self?.showImageView.image = image
+                    }
+                case .failure(let error):
+                    print(String(describing: error))
+                    break
+                }
+            }
         }
-        
+ 
     }
     
     func createSnapkitConstraints(){
@@ -128,5 +164,5 @@ class MDBTvShowDetailView: UIView {
     }
     
     
-
+    
 }
