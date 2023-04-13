@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 
 protocol MDBShowListViewDelegate: AnyObject {
-    func mdbShowListView(_ filmListView: MDBTvShowListView, didSelectCharacter film: MDBPopularShow)
+    func mdbShowListView(_ showListView: MDBTvShowListView, didSelectShow show: MDBPopularShow)
 }
 
 
@@ -28,6 +28,8 @@ final class MDBTvShowListView: UIView {
     var collectionView : UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.isHidden = true
+        collectionView.alpha = 0
         layout.scrollDirection = .vertical
         return collectionView
     }()
@@ -44,11 +46,14 @@ final class MDBTvShowListView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        viewModel.fetchShows()
+       
+        spinner.startAnimating()
         viewModel.delegate = self
-        addSubviews(collectionView)
-        setUpCollectionView()
+        addSubviews(collectionView,spinner)
         createSnapkitConstraints()
+        viewModel.fetchShows()
+        setUpCollectionView()
+    
         
     }
     
@@ -62,6 +67,12 @@ final class MDBTvShowListView: UIView {
             make.height.equalToSuperview().multipliedBy(0.9)
             make.top.equalToSuperview()
         }
+        spinner.snp.makeConstraints { make in
+            make.width.equalTo(100)
+            make.height.equalTo(100)
+            make.centerX.equalTo(self.snp.centerX)
+            make.centerY.equalTo(self.snp.centerY)
+        }
     }
     
     private func setUpCollectionView(){
@@ -73,12 +84,20 @@ final class MDBTvShowListView: UIView {
 }
 
 extension MDBTvShowListView : MDBTvShowListViewViewModelDelegate {
-    func didFetchShows() {
-        self.collectionView.reloadData()
+    func didLoadShows() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            self.spinner.stopAnimating()
+            self.collectionView.isHidden = false
+            self.collectionView.reloadData() //Initial fetch
+            UIView.animate(withDuration: 0.4){
+                self.collectionView.alpha = 1
+            }
+        }
+     
     }
     
     func didSelectShow(_ character: MDBPopularShow) {
-        delegate?.mdbShowListView(self, didSelectCharacter: character)
+        delegate?.mdbShowListView(self, didSelectShow: character)
     }
     
     
