@@ -8,11 +8,17 @@
 import UIKit
 import SnapKit
 import CoreData
+
+///This is a custom UIView subclass named MDBTvShowDetailView, which represents the detail view of a TV show. It has several UI elements such as an image view, labels, and a button to add the TV show as a favorite.
+
+//The MDBShowDetailViewDelegate protocol defines a delegate method that is called when the user selects a TV show from the list. The mdbShowDetailView(_:didSelectShow:) method passes the selected MDBTvShowDetail object to the delegate.
 protocol MDBShowDetailViewDelegate: AnyObject {
     func mdbShowDetailView(_ showListView: MDBTvShowDetailView, didSelectShow show: MDBTvShowDetail)
 }
 
 class MDBTvShowDetailView: UIView {
+    
+    //MARK: UI Elements
     
     public let showImageView : UIImageView = {
         let imageView = UIImageView()
@@ -87,6 +93,21 @@ class MDBTvShowDetailView: UIView {
         return button
     }()
     
+    //MARK: Life Cycle
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        addSubviews(showImageView,showTitleLabel,showGenreLabel,showSeasonCountLabel,showTotalEpisodesLabel,showDescriptionHeader,showDescriptionLabel,showAddFavoriteButton)
+        createSnapkitConstraints()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
+    //MARK: Functions
+
+    //The showAddFavoriteButtonClicked method is triggered when the user taps on the "Add Favorite" button. It sets the button's image to a filled heart icon and creates a new TVShow object in the Core Data database with the title of the TV show.However, it does not save the changes to the database. I'cant solve it. :)
     @objc func showAddFavoriteButtonClicked(){
         print("tıklandı")
         showAddFavoriteButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
@@ -116,16 +137,10 @@ class MDBTvShowDetailView: UIView {
     
     
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        addSubviews(showImageView,showTitleLabel,showGenreLabel,showSeasonCountLabel,showTotalEpisodesLabel,showDescriptionHeader,showDescriptionLabel,showAddFavoriteButton)
-        createSnapkitConstraints()
-    }
+
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
+    //The configure method is used to populate the view with data from a MDBTvShowListDetailViewViewModel. It sets the UI element values based on the properties of the viewModel, such as the TV show title, genre, number of seasons, etc. It also downloads the TV show image and sets it to the image view
     func configure(with viewModel : MDBTvShowListDetailViewViewModel ) {
         DispatchQueue.main.async {
             
@@ -176,7 +191,6 @@ class MDBTvShowDetailView: UIView {
         }
  
     }
-    
     func createSnapkitConstraints(){
         showImageView.snp.makeConstraints { make in
             make.width.equalTo(150)
@@ -230,7 +244,7 @@ class MDBTvShowDetailView: UIView {
         showAddFavoriteButton.snp.makeConstraints { make in
             make.width.equalTo(200)
             make.height.equalTo(50)
-            make.top.equalTo(showDescriptionLabel.snp.bottom)
+            make.top.equalTo(showDescriptionLabel.snp.bottom).offset(10)
             make.left.equalToSuperview().offset(30)
         }
         

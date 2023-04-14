@@ -6,8 +6,17 @@
 //
 
 import Foundation
-
 class MDBService {
+    
+    /**
+    This is a service class for making network requests to the The Movie DB API. It contains an execute method that sends a request to the API and handles the response in a completion handler.
+
+    The execute method takes in a MDBRequest object and a type that is expected to be returned in the response. The result of the request is returned in a completion handler that takes in a Result object that contains either the decoded response or an error.
+
+    The request method is a private helper method that takes in a MDBRequest object and creates a URL request from it. If the URL is not valid, it returns nil.
+
+    The MDBServiceError is an enum that defines the possible errors that can occur when making a request, including failing to create a request and failing to get data from the response.
+    */
     
     enum MDBServiceError : Error {
         case failedToCreateRequest
@@ -16,7 +25,7 @@ class MDBService {
     
     static let shared = MDBService()
     
-    
+    //MARK: Execute
     public func execute<T : Codable>(_ request : MDBRequest, expecting type : T.Type, completion : @escaping (Result<T , Error>) -> Void) {
         guard let urlRequest = self.request(from: request) else {
             completion(.failure(MDBServiceError.failedToCreateRequest))
@@ -50,81 +59,6 @@ class MDBService {
         print(url.absoluteString)
         return request
     }
-    
-    
-    
-    
-//    func requestPopularTvShows(completion : @escaping (MDBPopularShowResponse? , Error?) -> ()) {
-//        let request = NSMutableURLRequest(url: NSURL(string: MDBRequest.popularTvShows(page: 34).url.absoluteString)! as URL,
-//                                          cachePolicy: .useProtocolCachePolicy,
-//                                          timeoutInterval: 10.0)
-//        request.httpMethod = "GET"
-//        let session = URLSession.shared
-//        let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
-//            if (error != nil) {
-//                print(error?.localizedDescription as Any)
-//            } else {
-//                let httpResponse = response as? HTTPURLResponse
-//                print(httpResponse?.statusCode as Any)
-//                let decoder = JSONDecoder()
-//                if let data = data {
-//                    do {
-//                        let models  = try decoder.decode(MDBPopularShowResponse.self, from: data)
-//                        completion(models,nil)
-//                    }catch{
-//                        print(error.localizedDescription)
-//                        completion(nil, MDBServiceError.noData)
-//
-//
-//                    }
-//                }
-//            }
-//        })
-//        dataTask.resume()
-//    }
-    
-
-//
-//    func requestTvShowDetails(for showID: Int?, completion: @escaping (MDBTvShowDetail?, Error?) -> ()) {
-//        let request = NSMutableURLRequest(url: NSURL(string: MDBRequest.tvShowDetails(showID: showID!).url.absoluteString)! as URL,
-//                                          cachePolicy: .useProtocolCachePolicy,
-//                                          timeoutInterval: 10.0)
-//        request.httpMethod = "GET"
-//
-//        let session = URLSession.shared
-//        let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
-//            if (error != nil) {
-//                print(error?.localizedDescription as Any)
-//            } else {
-//                let httpResponse = response as? HTTPURLResponse
-//                print(httpResponse?.statusCode as Any)
-//                let decoder = JSONDecoder()
-//
-//
-//
-//                if let data = data {
-//                    do {
-//                        let decodeObject = try MDBRequest.decode(MDBTvShowDetail.self, data: data)
-//
-//                    } catch {
-//                        print(error.localizedDescription)
-//                    }
-//                }
-//            }
-//        })
-//        dataTask.resume()
-//    }
-    
-    
-//    func decode<T : Codable>(_ type : T.Type, data : Data)  -> T? {
-//        do{
-//            let response = try JSONDecoder().decode(type, from: data)
-//            return response
-//        }catch let error{
-//            print(error.localizedDescription)
-//        }
-//        return nil
-//    }
     
 }
 

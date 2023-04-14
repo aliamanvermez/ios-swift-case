@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+/// ViewModel to hold data for a single TV show collection view cell
 final class MDBTvShowCollectionViewCellViewModel {
     public let showName : String?
     public let showImageURL : URL?
@@ -19,7 +19,7 @@ final class MDBTvShowCollectionViewCellViewModel {
         self.showVoteAverage = showVoteAverage
         self.showID = showID
     }
-    
+    // Function to fetch the image data from the URL provided
     public func fetchImage(completion : @escaping (Result <Data, Error>) -> Void) {
         guard let url = showImageURL else {
             completion(.failure(URLError(.badURL)))

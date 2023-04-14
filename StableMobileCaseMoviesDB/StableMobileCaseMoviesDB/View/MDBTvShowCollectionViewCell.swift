@@ -7,8 +7,15 @@
 
 import UIKit
 import SnapKit
+
 final class MDBTvShowCollectionViewCell: UICollectionViewCell {
+    
+    //:MARK: UI Proporties
     static let identifier = "MBDTvShowCollectionViewCell"
+    
+    //MARK: UI Elements
+    
+    // Show image view
     public let showImageView : UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
@@ -16,6 +23,7 @@ final class MDBTvShowCollectionViewCell: UICollectionViewCell {
         return imageView
     }()
     
+    // Show name label
     private let showNameLabel : UILabel = {
         let label = UILabel()
         label.textColor = .white
@@ -25,6 +33,7 @@ final class MDBTvShowCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
+    // Show vote average header label
     private let showVoteAverageHeader : UILabel = {
         let label = UILabel()
         label.text = "Show's Average Vote"
@@ -35,6 +44,7 @@ final class MDBTvShowCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
+    // Show vote average label
     private let showVoteAverageLabel : UILabel = {
         let label = UILabel()
         label.textColor = .white
@@ -44,31 +54,37 @@ final class MDBTvShowCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
+    //MARK: Life Cycle
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentView.addSubviews(showImageView,showNameLabel,showVoteAverageHeader,showVoteAverageLabel)
         addViewConstraints()
-        
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK: Functions
+    
+    // Configures the cell with the given view model
     public func configureCell(with viewModel : MDBTvShowCollectionViewCellViewModel) {
         
+        // Set the show name label text
         if let showName = viewModel.showName {
             showNameLabel.text = showName
         } else {
             showNameLabel.text = "Empty Name"
         }
         
+        // Set the show vote average label text
         if let showVoteAverage = viewModel.showVoteAverage {
             showVoteAverageLabel.text = String(describing: showVoteAverage)
         } else {
             showVoteAverageLabel.text = "Average not found"
         }
         
+        // Fetch the show image and set it to the image view
         viewModel.fetchImage { [weak self] result in
             switch result {
             case .success(let data):
@@ -81,8 +97,9 @@ final class MDBTvShowCollectionViewCell: UICollectionViewCell {
                 break
             }
         }
-            
     }
+    
+    // Add view constraints using SnapKit
     
     func addViewConstraints(){
         showImageView.snp.makeConstraints { make in

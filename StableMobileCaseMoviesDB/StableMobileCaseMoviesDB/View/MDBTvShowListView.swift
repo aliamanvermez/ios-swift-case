@@ -8,6 +8,9 @@
 import UIKit
 import SnapKit
 
+/// This is the implementation of a custom view called MDBTvShowListView
+
+/// It adopts the MDBShowListViewDelegate protocol to allow for communication with its delegate object
 protocol MDBShowListViewDelegate: AnyObject {
     func mdbShowListView(_ showListView: MDBTvShowListView, didSelectShow show: MDBPopularShow)
 }
@@ -15,9 +18,13 @@ protocol MDBShowListViewDelegate: AnyObject {
 
 final class MDBTvShowListView: UIView {
     
+    //MARK: UI Proporties
     public weak var delegate : MDBShowListViewDelegate?
+   
+    ///A private viewModel object of type MDBTvShowListViewViewModel
     private let viewModel =  MDBTvShowListViewViewModel()
     
+    //MARK: UI Elements
     private let spinner : UIActivityIndicatorView = {
         let spinner = UIActivityIndicatorView(style: .large)
         spinner.color = .red
@@ -44,7 +51,7 @@ final class MDBTvShowListView: UIView {
     }()
     
 
-    
+    //MARK: Life Cycle
     override init(frame: CGRect) {
         super.init(frame: frame)
         spinner.startAnimating()
@@ -59,6 +66,7 @@ final class MDBTvShowListView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK: Functions
     private func createSnapkitConstraints() {
         collectionView.snp.makeConstraints { make in
             make.width.equalToSuperview()
@@ -71,7 +79,6 @@ final class MDBTvShowListView: UIView {
             make.centerY.equalTo(self.snp.centerY)
         }
     }
-    
     private func setUpCollectionView(){
         collectionView.dataSource = viewModel
         collectionView.delegate = viewModel
@@ -79,6 +86,10 @@ final class MDBTvShowListView: UIView {
     }
     
 }
+//MARK: Extension
+
+// The extension adopts the MDBTvShowListViewViewModelDelegate protocol to handle the viewModel's updates
+// When shows have been loaded, the spinner stops animating and the collectionView is displayed with a fade-in animation.
 
 extension MDBTvShowListView : MDBTvShowListViewViewModelDelegate {
     func didLoadShows() {
@@ -90,9 +101,7 @@ extension MDBTvShowListView : MDBTvShowListViewViewModelDelegate {
                 self.collectionView.alpha = 1
             }
         }
-     
     }
-    
     func didSelectShow(_ character: MDBPopularShow) {
         delegate?.mdbShowListView(self, didSelectShow: character)
     }

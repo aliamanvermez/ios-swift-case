@@ -8,7 +8,13 @@
 import Foundation
 
 struct MDBTvShowDetail: Codable {
-   
+   /*
+    This code defines a struct called MDBTvShowDetail which conforms to the Codable protocol.
+    The struct represents details about a TV show from the Movie Database API.
+    The struct contains properties such as the genres of the show, its name, the number of episodes and seasons, a poster path, and an overview.
+    The struct also defines a nested struct called Genre, which represents a genre of the TV show.
+    The struct has an extension that adds a computed property called posterURL, which returns a URL for the poster image of the TV show.
+    */
     let genres: [Genre]?
     let name: String?
     let numberOfEpisodes : Int?

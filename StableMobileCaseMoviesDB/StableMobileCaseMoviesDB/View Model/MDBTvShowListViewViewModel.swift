@@ -8,14 +8,19 @@
 import Foundation
 import UIKit
 
+//// This protocol defines the delegate methods for the MDBTvShowListViewViewModel to notify its delegate of important events.
 protocol MDBTvShowListViewViewModelDelegate: AnyObject {
+    
+    // Notifies the delegate that the shows have been loaded and are ready to be displayed.
     func didLoadShows()
+    // Notifies the delegate that a show has been selected.
     func didSelectShow(_ show : MDBPopularShow)
     
 }
  ///View model to handle show list logic
 final class MDBTvShowListViewViewModel: NSObject{
-    
+    // An array of MDBPopularShow objects to store the loaded shows.
+    // When the array of shows is set, create an array of MDBTvShowCollectionViewCellViewModel objects to represent each show
     private var tvShows : [MDBPopularShow] = [] {
         didSet {
             for tvShow in tvShows {
@@ -30,8 +35,10 @@ final class MDBTvShowListViewViewModel: NSObject{
     }
     
     public weak var delegate : MDBTvShowListViewViewModelDelegate?
+    // An array of MDBTvShowCollectionViewCellViewModel objects to represent each show.
     private var cellViewModel : [MDBTvShowCollectionViewCellViewModel] = []
     
+    // This function is used to fetch the TV shows from the API.
     func fetchShows(){
         MDBService.shared.execute(.listShowsRequest, expecting: MDBPopularShowResponse.self) { [weak self] result in
             switch result {
@@ -52,7 +59,6 @@ final class MDBTvShowListViewViewModel: NSObject{
 }
 
 //MARK: CollectionView
-
 extension MDBTvShowListViewViewModel : UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         cellViewModel.count

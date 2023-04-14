@@ -7,14 +7,16 @@
 
 import Foundation
 
+///View model for displaying details of a TV show.
 final class MDBTvShowListDetailViewViewModel {
-    private let show: MDBPopularShow
+    public let show: MDBPopularShow
     public var showDetail: MDBTvShowDetail?
     
     init(show: MDBPopularShow) {
         self.show = show
     }
     
+    // The 'fetchShowDetail' method fetches the detailed information of the TV show using a network request and stores it in 'showDetail'.
     func fetchShowDetail(completion: @escaping () -> Void) {
         MDBService.shared.execute(.detailRequest(for: show.id!), expecting: MDBTvShowDetail.self) { [weak self] result in
             switch result {
@@ -26,7 +28,7 @@ final class MDBTvShowListDetailViewViewModel {
             }
         }
     }
-    
+    // The 'fetchShowImage' method fetches the image of the TV show using a network request and returns it in the completion handler.
     public func fetchShowImage(completion : @escaping (Result <Data, Error>) -> Void) {
         let showImageURL = URL(string: show.posterURL?.absoluteString ?? "no image")
         guard let url = showImageURL else {

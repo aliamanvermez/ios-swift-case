@@ -7,12 +7,15 @@
 
 import Foundation
 
+/// This is a struct that conforms to the Codable protocol.
+/// It represents a popular TV show returned by the Movie Database API.
+
 struct MDBPopularShow: Codable {
     
-    let genreIDS: [Int]?//genreid
+    let genreIDS: [Int]? //genre
     let id: Int? //id
     let name: String? //name
-    let posterPath: String?
+    let posterPath: String? //image
     let voteAverage: Double? //average rating
     
     enum CodingKeys: String, CodingKey {
@@ -31,14 +34,13 @@ struct MDBPopularShow: Codable {
 }
 
 extension MDBPopularShow {
+    //converting to path to url
     var posterURL: URL? {
         guard let posterPath = posterPath else {
             return nil
         }
         return URL(string: "https://image.tmdb.org/t/p/w500\(posterPath)")
     }
-    
-    
 }
 
 

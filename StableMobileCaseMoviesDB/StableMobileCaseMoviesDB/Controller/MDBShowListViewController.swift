@@ -9,15 +9,18 @@ import UIKit
 
 class MDBShowListViewController: UIViewController, MDBShowListViewDelegate {
     
+    
+    //:MARK: UI Elements
     let showListView = MDBTvShowListView()
+
+    //MARK: Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        // Do any additional setup after loading the view.
         setUpView()
         configureNavigationController()
     }
-    
+    //MARK: Functions
     func setUpView() {
         view.backgroundColor = .black
         view.addSubview(showListView)
@@ -28,7 +31,6 @@ class MDBShowListViewController: UIViewController, MDBShowListViewDelegate {
             make.height.equalToSuperview()
         }
     }
-    
     func configureNavigationController(){
         title = "The MovieDB Shows"
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -42,7 +44,6 @@ class MDBShowListViewController: UIViewController, MDBShowListViewDelegate {
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
         
     }
-    
     //MARK: MDBTvShowListViewDelegate
     func mdbShowListView(_ showListView: MDBTvShowListView, didSelectShow show: MDBPopularShow) {
         //Open another view controller for that show
