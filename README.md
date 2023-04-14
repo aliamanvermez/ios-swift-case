@@ -9,9 +9,8 @@ Show details of a TV show, including its name, poster image, number of seasons, 
 This app is built using the MVVM (Model-View-ViewModel) architecture pattern. 
 The View is responsible for displaying the data, the ViewModel is responsible for preparing the data for display, and the Model is responsible for fetching the data from the API.
 
-#Libraries Used
+#LibrariesUsed
 URLSession - Networking library to make API calls
-SDWebImage - Library for downloading and caching images from the web
 CoreData - Library for persisting data in the app
 # Installation
 Clone or download the repository.
