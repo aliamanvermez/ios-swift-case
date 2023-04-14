@@ -131,7 +131,6 @@
 		EF1742EA29E455FD00C8F098 /* StableMobileCaseMoviesDB */ = {
 			isa = PBXGroup;
 			children = (
-				EF17434D29E8C6DA00C8F098 /* Core Data */,
 				EF17432329E458B500C8F098 /* APIClient */,
 				EF17432029E4589000C8F098 /* Model */,
 				EF17432229E458A300C8F098 /* View */,
@@ -228,13 +227,6 @@
 				EF17433B29E4AE2400C8F098 /* UIView+Extensions.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		EF17434D29E8C6DA00C8F098 /* Core Data */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Core Data";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
