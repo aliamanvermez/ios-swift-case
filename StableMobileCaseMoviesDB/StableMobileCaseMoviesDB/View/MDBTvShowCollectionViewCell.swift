@@ -18,7 +18,7 @@ final class MDBTvShowCollectionViewCell: UICollectionViewCell {
     
     private let showNameLabel : UILabel = {
         let label = UILabel()
-        label.textColor = .black
+        label.textColor = .white
         label.textAlignment = .center
         label.numberOfLines = 3
         label.font = .systemFont(ofSize: 20, weight: .bold)
@@ -28,19 +28,19 @@ final class MDBTvShowCollectionViewCell: UICollectionViewCell {
     private let showVoteAverageHeader : UILabel = {
         let label = UILabel()
         label.text = "Show's Average Vote"
-        label.textColor = .black
+        label.textColor = .white
         label.textAlignment = .center
         label.numberOfLines = 3
-        label.font = .systemFont(ofSize: 18, weight: .light)
+        label.font = .systemFont(ofSize: 14, weight: .regular)
         return label
     }()
     
     private let showVoteAverageLabel : UILabel = {
         let label = UILabel()
-        label.textColor = .black
+        label.textColor = .white
         label.textAlignment = .center
         label.numberOfLines = 3
-        label.font = .systemFont(ofSize: 16, weight: .bold)
+        label.font = .systemFont(ofSize: 14, weight: .regular)
         return label
     }()
     
@@ -108,7 +108,7 @@ final class MDBTvShowCollectionViewCell: UICollectionViewCell {
         showVoteAverageLabel.snp.makeConstraints { make in
             make.width.equalToSuperview().multipliedBy(0.7)
             make.height.equalToSuperview().multipliedBy(0.2)
-            make.top.equalTo(showVoteAverageHeader.snp.bottom)
+            make.top.equalTo(showVoteAverageHeader.snp.bottom).offset(-15)
             make.left.equalTo(showImageView.snp.right)
         }
     }

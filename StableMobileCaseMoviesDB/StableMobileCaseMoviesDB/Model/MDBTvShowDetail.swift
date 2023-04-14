@@ -14,14 +14,15 @@ struct MDBTvShowDetail: Codable {
     let numberOfEpisodes : Int?
     let numberOfSeasons: Int?
     let posterPath: String?
+    let overview: String?
     
     enum CodingKeys: String, CodingKey {
-   
         case genres
         case name
         case numberOfEpisodes = "number_of_episodes"
         case numberOfSeasons = "number_of_seasons"
         case posterPath = "poster_path"
+        case overview
 
     }
 }

@@ -15,16 +15,32 @@ class MDBShowListViewController: UIViewController, MDBShowListViewDelegate {
         view.backgroundColor = .white
         // Do any additional setup after loading the view.
         setUpView()
+        configureNavigationController()
     }
     
     func setUpView() {
-        showListView.delegate = self
+        view.backgroundColor = .black
         view.addSubview(showListView)
+        showListView.delegate = self
         showListView.snp.makeConstraints { make in
             make.top.equalToSuperview()
             make.width.equalToSuperview()
             make.height.equalToSuperview()
         }
+    }
+    
+    func configureNavigationController(){
+        title = "The MovieDB Shows"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        let appearance = UINavigationBarAppearance()
+        appearance.backgroundColor = .red
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.compactAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        
     }
     
     //MARK: MDBTvShowListViewDelegate

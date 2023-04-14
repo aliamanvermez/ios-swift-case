@@ -29,6 +29,7 @@ final class MDBTvShowListView: UIView {
         let layout = UICollectionViewFlowLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.isHidden = true
+        collectionView.backgroundColor = .black
         collectionView.alpha = 0
         layout.scrollDirection = .vertical
         return collectionView
@@ -46,15 +47,12 @@ final class MDBTvShowListView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-       
         spinner.startAnimating()
         viewModel.delegate = self
         addSubviews(collectionView,spinner)
         createSnapkitConstraints()
         viewModel.fetchShows()
         setUpCollectionView()
-    
-        
     }
     
     required init?(coder: NSCoder) {
@@ -65,7 +63,6 @@ final class MDBTvShowListView: UIView {
         collectionView.snp.makeConstraints { make in
             make.width.equalToSuperview()
             make.height.equalToSuperview().multipliedBy(0.9)
-            make.top.equalToSuperview()
         }
         spinner.snp.makeConstraints { make in
             make.width.equalTo(100)
