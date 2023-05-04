@@ -1,4 +1,4 @@
-# ios-swift-stablemobile-case
+# ios-swift-case
 
 This is a TV Show App that displays popular TV shows and their details using the TMDB API. The app is built using the MVVM architecture pattern and written in Swift.
 
